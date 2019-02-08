@@ -45,7 +45,7 @@ public class Overall_equipment_efficiency extends javax.swing.JFrame {
         add(chartPanel);
 
         pack();
-        setTitle("Bar chart");
+        setTitle("Overall Equipment Chart");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

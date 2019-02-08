@@ -19,100 +19,83 @@ public class menu extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         back = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        efficency.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        efficency.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        efficency.setForeground(new java.awt.Color(51, 51, 255));
         efficency.setText("Overall equipment efficiency");
+        efficency.setBorder(null);
         efficency.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 efficencyActionPerformed(evt);
             }
         });
+        getContentPane().add(efficency, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 177, 240, 30));
 
-        productivity.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        productivity.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        productivity.setForeground(new java.awt.Color(51, 51, 255));
         productivity.setText("machine productivity");
+        productivity.setBorder(null);
         productivity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productivityActionPerformed(evt);
             }
         });
+        getContentPane().add(productivity, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 217, 240, 30));
 
-        utilization.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        utilization.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        utilization.setForeground(new java.awt.Color(51, 51, 255));
         utilization.setText("machine utilization");
+        utilization.setBorder(null);
         utilization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 utilizationActionPerformed(evt);
             }
         });
+        getContentPane().add(utilization, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 257, 240, 30));
 
-        line_efficiency.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        line_efficiency.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        line_efficiency.setForeground(new java.awt.Color(51, 51, 255));
         line_efficiency.setText("line efficiency");
+        line_efficiency.setBorder(null);
         line_efficiency.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 line_efficiencyActionPerformed(evt);
             }
         });
+        getContentPane().add(line_efficiency, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 297, 240, 30));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(51, 51, 255));
         jButton1.setText("Add machine details");
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 137, 240, 30));
 
-        back.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        back.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         back.setText("BACK");
+        back.setBorder(null);
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backActionPerformed(evt);
             }
         });
+        getContentPane().add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 63, 28));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 0, 51));
         jLabel1.setText("Menu");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 80, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(productivity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(efficency, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(utilization, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(line_efficiency, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(back)
-                        .addGap(89, 89, 89)
-                        .addComponent(jLabel1)))
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(back))
-                .addGap(30, 30, 30)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(efficency)
-                .addGap(18, 18, 18)
-                .addComponent(productivity)
-                .addGap(18, 18, 18)
-                .addComponent(utilization)
-                .addGap(18, 18, 18)
-                .addComponent(line_efficiency)
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/image3.jpeg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -161,6 +144,7 @@ public class menu extends javax.swing.JFrame {
     private javax.swing.JButton efficency;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton line_efficiency;
     private javax.swing.JButton productivity;
     private javax.swing.JButton utilization;

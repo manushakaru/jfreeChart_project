@@ -2,7 +2,9 @@ package project;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -31,132 +33,110 @@ public class AddMachineDetail extends javax.swing.JFrame {
         stoptime = new javax.swing.JTextField();
         numstitches = new javax.swing.JTextField();
         runtime = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         speed = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        line_id = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("ENTER MACHINE DETAILS");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 240, 20));
 
+        machineId.setBorder(null);
+        getContentPane().add(machineId, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, 99, 21));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Machine Id : ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 140, 21));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Start Time : ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 140, 21));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Number of Stitches : ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 140, 21));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Stop Time :");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 140, 21));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Run Time : ");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 140, 21));
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Speed : ");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, 140, 22));
 
         starttime.setText("hh:mm:ss");
+        starttime.setBorder(null);
+        getContentPane().add(starttime, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 99, 21));
 
         stoptime.setText("hh:mm:ss");
+        stoptime.setBorder(null);
         stoptime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stoptimeActionPerformed(evt);
             }
         });
+        getContentPane().add(stoptime, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 99, 21));
 
+        numstitches.setBorder(null);
+        getContentPane().add(numstitches, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 99, 21));
+
+        runtime.setBorder(null);
         runtime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 runtimeActionPerformed(evt);
             }
         });
+        getContentPane().add(runtime, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 99, 21));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("ENTER");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
+        speed.setBorder(null);
         speed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 speedActionPerformed(evt);
             }
         });
+        getContentPane().add(speed, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 300, 100, 20));
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setText("ENTER");
+        jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 76, 28));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Back");
+        jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 23, 62, 27));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jButton2)
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(runtime)
-                            .addComponent(numstitches)
-                            .addComponent(stoptime)
-                            .addComponent(starttime)
-                            .addComponent(machineId)
-                            .addComponent(speed, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(jButton1)))
-                .addContainerGap(112, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel1))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(machineId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(starttime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(stoptime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(numstitches, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(runtime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(speed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(jButton1)
-                .addContainerGap(72, Short.MAX_VALUE))
-        );
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setText("Line Id :");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 140, 19));
+
+        line_id.setBorder(null);
+        getContentPane().add(line_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 99, 22));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/project/image1.jpeg"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(-310, -210, 890, 630));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -180,13 +160,18 @@ public class AddMachineDetail extends javax.swing.JFrame {
         String spd = speed.getText();
         String start_time = starttime.getText();
         String stop_time = stoptime.getText();
+        String lineID = line_id.getText();
         
         Connection conn = Database.getConnection();
         
         try{
 
-            String query = "insert into machine (machine_id, start_time,stitches, stop_time, run_time, speed )"
-              + " values (?, ?, ?, ?,?,?)";
+            String query = "insert into machine (machine_id, "
+                    + "start_time,stitches, stop_time, run_time, speed )"
+                     + " values (?, ?, ?, ?,?,?)";
+            String query2 = "insert into line_assign (line_id,machine_id) values (?,?)";
+            
+            String query3 = "select * from line_assign where line_id = ? and machine_id = ?";
 
             conn.setAutoCommit(false);
             
@@ -197,11 +182,31 @@ public class AddMachineDetail extends javax.swing.JFrame {
             preparedStmt.setString(4, stop_time);
             preparedStmt.setString(5, run_time);
             preparedStmt.setString(6, spd);
-
-            preparedStmt.execute();
+            
+            PreparedStatement preparedStmt2 = conn.prepareStatement(query2);
+            preparedStmt2.setString(1, lineID );
+            preparedStmt2.setString(2, machine_id);
+            
+            PreparedStatement prep = conn.prepareStatement(query3);
+            prep.setString(1, lineID);
+            prep.setString(2, machine_id);
+            
+            ResultSet rs = null;
+        
+            Statement st = conn.createStatement( rs.TYPE_SCROLL_INSENSITIVE, rs.CONCUR_READ_ONLY);
+            rs = prep.executeQuery();
+            rs.last();
+            int num_rows  = rs.getRow();
+            
+            if(num_rows == 0 ){
+                preparedStmt.execute();
+                preparedStmt2.execute();
+                
+            }else{
+                preparedStmt.execute();
+            }
             
             conn.commit();
-
             conn.close();
             
             JOptionPane.showMessageDialog(null, "Successfully data entered!!!");
@@ -242,6 +247,9 @@ public class AddMachineDetail extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField line_id;
     private javax.swing.JTextField machineId;
     private javax.swing.JTextField numstitches;
     private javax.swing.JTextField runtime;
