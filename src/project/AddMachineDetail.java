@@ -167,8 +167,8 @@ public class AddMachineDetail extends javax.swing.JFrame {
         try{
 
             String query = "insert into machine (machine_id, "
-                    + "start_time,stitches, stop_time, run_time, speed )"
-                     + " values (?, ?, ?, ?,?,?)";
+                    + "start_time,stitches, stop_time, run_time, speed,date_entered )"
+                     + " values (?, ?, ?, ?,?,?,CURDATE());";
             String query2 = "insert into line_assign (line_id,machine_id) values (?,?)";
             
             String query3 = "select * from line_assign where line_id = ? and machine_id = ?";

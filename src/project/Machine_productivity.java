@@ -19,7 +19,6 @@ import org.jfree.chart.labels.ItemLabelAnchor;
 import org.jfree.chart.labels.ItemLabelPosition;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.CategoryItemRenderer;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
@@ -55,7 +54,9 @@ public class Machine_productivity extends javax.swing.JFrame {
                  
         try {
             Statement stmt = con.createStatement();
-            ResultSet query_set = stmt.executeQuery("select (sum(total_product)/count(machine_id)) as line_out, line_id from quality join line_assign using(machine_id) group by line_id");
+            ResultSet query_set = stmt.executeQuery("select (sum(total_product)/count(machine_id)) as line_out"
+                    + ", line_id from quality right join line_assign using(machine_id) "
+                    + "where deleted = 0 group by line_id");
             while (query_set.next()) {
                 String category = query_set.getString("line_id");
                 float lineout = query_set.getInt("line_out");
