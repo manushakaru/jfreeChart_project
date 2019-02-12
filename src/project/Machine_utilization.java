@@ -53,7 +53,7 @@ public class Machine_utilization extends javax.swing.JFrame {
                  
         try {
             Statement stmt = con.createStatement();
-            ResultSet query_set = stmt.executeQuery("select sum(run_time)/36 as utiliz , machine_id from machine join line_assign using (machine_id) where deleted = 0  group by machine_id");
+            ResultSet query_set = stmt.executeQuery("select sum(run_time)/36 as utiliz , machine_id from machine group by machine_id");
             while (query_set.next()) {
                 String category = query_set.getString("machine_id");
                 float val = query_set.getInt("utiliz");

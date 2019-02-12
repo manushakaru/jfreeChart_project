@@ -53,9 +53,7 @@ public class Line_efficiency extends javax.swing.JFrame {
                  
         try {
             Statement stmt = con.createStatement();
-            ResultSet query_set = stmt.executeQuery("select (sum(total_product)/(count(machine_id)*3)) as line_out,"
-                    + " line_id from quality right join line_assign using(machine_id) "
-                    + "where deleted =0  group by line_id");
+            ResultSet query_set = stmt.executeQuery("select (sum(total_product)/(count(machine_id)*3)) as line_out, line_id from quality join line_assign using(machine_id) group by line_id");
             while (query_set.next()) {
                 String category = query_set.getString("line_id");
                 float marks = query_set.getInt("line_out");

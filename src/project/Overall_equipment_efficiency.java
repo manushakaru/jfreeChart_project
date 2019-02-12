@@ -1,9 +1,9 @@
 package project;
 
+
 import java.awt.Color;
 import java.awt.Paint;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -30,11 +30,7 @@ public class Overall_equipment_efficiency extends javax.swing.JFrame {
 
 
     Connection con = Database.getConnection();
-    String start;
-    String end;
-    public Overall_equipment_efficiency(Date start, Date end) {
-        this.start = start.toString();
-        this.end = end.toString();
+    public Overall_equipment_efficiency() {
         init();
     }
     
@@ -60,13 +56,7 @@ public class Overall_equipment_efficiency extends javax.swing.JFrame {
                  
         try {
             Statement stmt = con.createStatement();
-            ResultSet query_set = stmt.executeQuery("select machine_id,"
-                    + "((sum(run_time)/60)*(round(sum(stitches)/"
-                    + "(sum(stitches/((EXTRACT(MINUTE FROM TIMEDIFF(stop_time,start_time)))"
-                    + "+ EXTRACT(HOUR FROM TIMEDIFF(stop_time,start_time))*60))),4))*(good_product/total_product))"
-                    + " as effi from (machine join line_assign using(machine_id)) left join quality using(machine_id)"
-                    + " where line_assign.deleted = 0 and date_entered between '"+start+"'and '"+end+"'"
-                    + " group by machine_id;");
+            ResultSet query_set = stmt.executeQuery("select machine_id,(availability*performance*quality) as effi from machine_summary");
             while (query_set.next()) {
                 String category = query_set.getString("machine_id");
                 float val = query_set.getInt("effi");
@@ -82,7 +72,7 @@ public class Overall_equipment_efficiency extends javax.swing.JFrame {
     private JFreeChart createChart(CategoryDataset dataset) {
 
         JFreeChart barChart = ChartFactory.createBarChart(
-            "Overall Equipment Efficiency "+start+" - "+end+" ",       // chart title
+            "Overall Equipment Efficiency",       // chart title
             "machine",               // domain axis label
             "OEE(per hour)",                  // range axis label
             dataset,                  // data
@@ -96,8 +86,8 @@ public class Overall_equipment_efficiency extends javax.swing.JFrame {
         plot.setNoDataMessage("NO DATA!");
 
         CategoryItemRenderer renderer = new CustomRenderer(
-            new Paint[] {Color.red, Color.blue, Color.green,
-                Color.yellow,Color.magenta, Color.orange,Color.cyan,Color.blue
+            new Paint[] {Color.red, Color.blue,Color.blue, Color.green,
+                Color.yellow,Color.magenta, Color.orange,Color.cyan
                   }
         );
 
@@ -136,6 +126,7 @@ public class Overall_equipment_efficiency extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
